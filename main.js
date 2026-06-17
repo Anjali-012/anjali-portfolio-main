@@ -2,10 +2,43 @@
 const projects = [
   {
     num: "01",
+    domain: "Real-time Collaboration · MERN",
+    name: "Project Management System (PMS)",
+    role: "Full-Stack Developer",
+    desc: "Real-time internal project management app (task boards + projects) where teams collaborate on the same workspace. Task changes sync instantly without page refresh, with activity, membership, and notifications to keep everyone aligned.",
+    highlights: [
+      "Designed and delivered a real-time task board experience so updates appear instantly for all members in the same project.",
+      "Built project workspace features: projects, members, activity feed, and notifications for task and workflow changes.",
+      "Implemented collaborative presence so users can see who is currently active in a project.",
+      "Created a secure membership model so only approved members can join and interact within a project workspace.",
+      "Added reliable notifications for key task changes (in-app, plus email delivery when configured).",
+      "Ensured scalability for real-time collaboration by supporting Redis-based Socket.IO scaling when needed.",
+      "Delivered the full MERN stack implementation end-to-end (UI, API, data models, and real-time updates).",
+    ],
+    tech: [
+      "React",
+      "Vite",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Mongoose",
+      "Socket.IO",
+      "JWT Auth",
+      "Redux Toolkit (Auth)",
+      "Zustand",
+      "Nodemailer",
+      "Redis Adapter",
+    ],
+    liveUrl: "https://project-management-system-olive-eight.vercel.app",
+  },
+  {
+    num: "02",
     domain: "Platform Engineering · AI · DevOps",
     name: "NexusFlow",
     role: "Full-Stack Engineer — Solo Build",
-    desc: "Production-grade visual workflow automation platform — think Zapier, built from scratch. Drag-and-drop canvas, async DAG execution engine, real-time SSE streaming, AI Copilot nodes, collaborative editing, and full Kubernetes deployment.",
+    desc: "Production-grade visual workflow automation platform — think Zapier, built from scratch. Drag-and-drop canvas, async DAG execution engine, real-time SSE streaming, AI Copilot nodes, collaborative editing, and full Kubernetes deployment. (Specification: workflow automation with async DAG execution, AI-assisted node creation, realtime collaboration, encrypted credentials, and production-grade Kubernetes deployment.)",
+
     highlights: [
       "Built async execution engine using BullMQ + Redis — webhook ingestion returns HTTP 202 in under 50ms via queue-based load leveling pattern.",
       "Implemented Kahn's Algorithm for topological DAG traversal with parallel branch execution and configurable exponential backoff retry policies.",
@@ -34,7 +67,7 @@ const projects = [
     ],
   },
   {
-    num: "02",
+    num: "03",
     domain: "Fintech",
     name: "Afropay (Swap)",
     role: "Frontend Developer",
@@ -54,7 +87,7 @@ const projects = [
     ],
   },
   {
-    num: "03",
+    num: "04",
     domain: "Government · DR Congo",
     name: "Sonal Monitoring (DRC)",
     role: "Frontend Developer",
@@ -79,7 +112,7 @@ const projects = [
     ],
   },
   {
-    num: "04",
+    num: "05",
     domain: "Enterprise · CRM",
     name: "Goldmark CRM",
     role: "Frontend Developer",
@@ -99,7 +132,7 @@ const projects = [
     ],
   },
   {
-    num: "05",
+    num: "06",
     domain: "SaaS · Education",
     name: "School Management System",
     role: "Frontend Developer",
@@ -122,7 +155,7 @@ const projects = [
     ],
   },
   {
-    num: "06",
+    num: "07",
     domain: "Productivity · Billing",
     name: "Simplify Invoice",
     role: "Frontend Developer",
@@ -146,7 +179,7 @@ const projects = [
     ],
   },
   {
-    num: "07",
+    num: "08",
     domain: "Travel · Booking",
     name: "ZAPS Travels",
     role: "Frontend Developer",
@@ -168,7 +201,7 @@ const projects = [
     ],
   },
   {
-    num: "08",
+    num: "09",
     domain: "B2B · Intelligence",
     name: "OpenSaas Platform",
     role: "Frontend Developer",
@@ -190,7 +223,7 @@ const projects = [
     ],
   },
   {
-    num: "09",
+    num: "10",
     domain: "Compliance · Identity",
     name: "E-KYC Platform",
     role: "Frontend Developer",
@@ -215,7 +248,7 @@ const projects = [
     ],
   },
   {
-    num: "10",
+    num: "11",
     domain: "Hospitality · Management",
     name: "JUA Hotel Portal",
     role: "Frontend Developer",
@@ -238,7 +271,7 @@ const projects = [
     ],
   },
   {
-    num: "11",
+    num: "12",
     domain: "Facilities · Operations",
     name: "Facility Management System",
     role: "Frontend Developer",
@@ -260,7 +293,7 @@ const projects = [
     ],
   },
   {
-    num: "12",
+    num: "13",
     domain: "AI · Automation",
     name: "Chatbot Platform",
     role: "Full-Stack Developer",
@@ -330,6 +363,14 @@ function openModal(index) {
   tech.innerHTML = p.tech
     .map((t) => `<span class="modal-tech-badge">${t}</span>`)
     .join("");
+
+  const liveLink = document.getElementById("modalLiveLink");
+  if (p.liveUrl) {
+    liveLink.innerHTML = `<a href="${p.liveUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">↗ Live Demo</a>`;
+    liveLink.style.display = "block";
+  } else {
+    liveLink.style.display = "none";
+  }
 
   document.body.style.overflow = "hidden";
   overlay.classList.add("open");
